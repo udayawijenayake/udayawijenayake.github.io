@@ -1,20 +1,19 @@
 /*
- * PROFESSIONAL & LIGHT STYLESHEET
- * Accent Color: #004aad (Deep Blue)
+ * PROFESSIONAL & LIGHT STYLESHEET (Revised for Dark Header)
  */
 
 :root {
   --color-accent: #004aad; /* Deep professional Blue */
-  --color-text: #212529; /* Near-black text */
-  --color-subtle: #6c757d; /* Muted grey for secondary text */
+  --color-text: #212529; /* Near-black text (used for main content) */
+  --color-subtle: #9ca3af; /* Light grey/silver for subtle text (used in dark header) */
   --color-bg: #f8f9fa; /* Very light grey background */
-  --color-light: #ffffff; /* Pure white */
+  --color-light: #ffffff; /* Pure white (used for header foreground/text) */
   --color-border: #dee2e6; /* Light grey border */
+  --color-dark-header: #1f2933; /* Dark header background */
 }
 
 body {
   margin: 0;
-  /* Use a clean system font stack */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   color: var(--color-text);
@@ -41,8 +40,8 @@ a:hover {
 /* --- HEADER / NAVIGATION --- */
 
 header {
-  background: var(--color-light); /* White header background */
-  color: var(--color-text);
+  background: var(--color-dark-header); /* DARK BACKGROUND */
+  color: var(--color-light); /* LIGHT FOREGROUND */
   padding: 2.5rem 0 0;
   border-bottom: 3px solid var(--color-accent); /* Strong accent border underneath */
 }
@@ -52,12 +51,12 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 2rem; 
-  padding-bottom: 1.5rem; /* Space before nav */
+  padding-bottom: 1.5rem; 
 }
 
 .header-content h1 {
   margin: 0 0 0.25rem;
-  color: var(--color-accent); 
+  color: var(--color-light); /* Name is white */
   font-size: 2.5rem;
   font-weight: 700;
 }
@@ -65,7 +64,7 @@ header {
 .subtitle {
   margin: 0;
   font-size: 1rem;
-  color: var(--color-subtle);
+  color: var(--color-subtle); /* Muted light color */
 }
 
 .tags {
@@ -75,26 +74,20 @@ header {
   opacity: 1;
 }
 
-/* Social links container (for the raw text links in publications.html header) */
-.links {
-  margin-top: 1.25rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
+/* Text links in publications.html header */
 .links a {
     color: var(--color-subtle);
     font-size: 0.9rem;
     padding: 0.25rem 0;
-    border-bottom: 1px dotted var(--color-accent); /* Subtle link style */
+    border-bottom: 1px dotted var(--color-subtle); /* Subtle link style in light grey */
 }
 
 .links a:hover {
-    color: var(--color-accent);
+    color: var(--color-light); /* White on hover */
+    border-bottom-color: var(--color-light);
 }
 
-/* For index.html (where social icons are used) */
+/* Social Icon links */
 .social-links {
   margin-top: 1.5rem;
   display: flex;
@@ -109,15 +102,15 @@ header {
   width: 38px; 
   height: 38px;
   border-radius: 50%; 
-  background: var(--color-light); 
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.1); /* Transparent light background on dark header */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border */
   text-decoration: none;
   transition: all 0.2s ease;
   opacity: 1;
 }
 
 .social-link:hover {
-  background: var(--color-accent); 
+  background: var(--color-accent); /* Blue background on hover */
   border-color: var(--color-accent);
   transform: translateY(-2px); 
   box-shadow: 0 2px 5px rgba(0, 74, 173, 0.3);
@@ -126,12 +119,12 @@ header {
 .social-icon {
   width: 20px;
   height: 20px;
-  fill: var(--color-text); /* Visible on light background */
+  fill: var(--color-light); /* ICONS ARE NOW WHITE */
   transition: fill 0.2s;
 }
 
 .social-link:hover .social-icon {
-    fill: var(--color-light); /* White icon on blue hover */
+    fill: var(--color-light); /* Stays white on blue hover */
 }
 
 
@@ -139,10 +132,10 @@ header {
 .profile-pic-container {
   width: 150px; 
   height: 150px;
-  border: 4px solid var(--color-border); 
+  border: 4px solid var(--color-subtle); /* Border is light against the dark background */
   border-radius: 50%;
   padding: 0; 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow on dark background */
   flex-shrink: 0;
 }
 
@@ -157,8 +150,10 @@ header {
 /* --- NAVIGATION BAR --- */
 
 nav {
+  /* Separated from header, still uses light/white background */
   background: var(--color-light); 
   margin-top: 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .nav-links {
@@ -170,7 +165,7 @@ nav {
 }
 
 nav a {
-  color: var(--color-subtle);
+  color: var(--color-subtle); /* Dark text on white background */
   text-decoration: none;
   font-size: 1rem;
   padding: 0.25rem 0;
@@ -180,7 +175,7 @@ nav a {
 
 nav a:hover,
 nav a.active-link {
-  color: var(--color-accent);
+  color: var(--color-accent); /* Blue text on hover/active */
 }
 
 /* Bottom Bar Indicator Effect */
@@ -228,7 +223,6 @@ h2 {
 }
 
 h3 {
-  /* Used for year headings in publications */
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
   color: var(--color-accent);
@@ -276,7 +270,6 @@ ul li strong {
 .pub-list {
     list-style-type: none; 
     padding-left: 0; 
-    /* For custom counter */
     counter-reset: pub-counter;
 }
 
@@ -284,13 +277,12 @@ ul li strong {
     counter-increment: pub-counter;
     margin-bottom: 1.5rem; 
     position: relative;
-    padding-left: 2rem; /* Space for the counter */
-    border-bottom: 1px dashed var(--color-border); /* Subtle separator */
+    padding-left: 2rem; 
+    border-bottom: 1px dashed var(--color-border); 
     padding-bottom: 1rem;
-    list-style: none; /* Override any general ul li rules */
+    list-style: none;
 }
 
-/* Publication Number / Index */
 .pub-list li::before {
     content: counter(pub-counter) ".";
     position: absolute;
@@ -304,11 +296,11 @@ ul li strong {
 
 .pub-authors {
     font-weight: 500;
-    color: var(--color-text);
+    color: var(--color-light); /* Adjusted for better visibility if used in a specific way, but usually in content */
 }
 
 .pub-title {
-    font-style: italic; /* Keep italic for citation style */
+    font-style: italic; 
 }
 
 .pub-venue {
@@ -348,6 +340,7 @@ footer {
     width: 120px;
     height: 120px;
     margin-bottom: 1rem;
+    border-color: var(--color-light); /* Ensure border is white on small screens */
   }
   .nav-links {
     gap: 1rem;
@@ -355,8 +348,5 @@ footer {
   }
   .links {
     justify-content: center;
-  }
-  .pub-list li {
-    padding-left: 1.5rem; /* Smaller indent on mobile */
   }
 }
