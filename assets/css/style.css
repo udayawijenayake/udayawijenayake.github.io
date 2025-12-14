@@ -179,3 +179,65 @@ footer {
 }
 
 
+.about p {
+  max-width: 60rem;
+}
+
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: #111827;
+  color: #f9fafb;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: 1px solid #111827;
+}
+
+.btn-cv::before {
+  content: "📄";
+  margin-right: 0.35rem;
+  font-size: 1rem;
+}
+
+.btn-cv:hover {
+  background: #ffffff;
+  color: #111827;
+}
+
+/* Two-column layout for Education / Appointments */
+.info-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.timeline {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.timeline li {
+  margin-bottom: 0.7rem;
+}
+
+.timeline .label {
+  display: block;
+  font-weight: 600;
+}
+
+.timeline .meta {
+  display: block;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
