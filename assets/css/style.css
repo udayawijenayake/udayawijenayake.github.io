@@ -16,15 +16,15 @@ body {
   margin-top: 0.75rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem; /* tighter spacing */
+  gap: 0.5rem; /* tighter spacing */
 }
 
 .social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;      /* smaller icon container */
-  height: 24px;
+  width: 32px;      /* smaller icon container */
+  height: 324px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.08);
   text-decoration: none;
@@ -37,8 +37,8 @@ body {
 }
 
 .social-icon {
-  width: 14px;    /* smaller SVG */
-  height: 14px;
+  width: 18px;    /* smaller SVG */
+  height: 18px;
   fill: #f9fafb;
 }
 
