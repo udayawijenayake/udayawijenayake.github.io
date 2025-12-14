@@ -4,10 +4,10 @@
 
 :root {
   --color-accent: #004aad; /* Deep professional Blue */
-  --color-text: #212529; /* Near-black text (used for main content) */
-  --color-subtle: #9ca3af; /* Light grey/silver for subtle text (used in dark header) */
+  --color-text: #212529; /* Near-black text (used for main content foreground) */
+  --color-subtle: #9ca3af; /* Light grey/silver (used for subtle text in dark header) */
   --color-bg: #f8f9fa; /* Very light grey background */
-  --color-light: #ffffff; /* Pure white (used for header foreground/text) */
+  --color-light: #ffffff; /* Pure white (used for header foreground/content background) */
   --color-border: #dee2e6; /* Light grey border */
   --color-dark-header: #1f2933; /* Dark header background */
 }
@@ -43,7 +43,7 @@ header {
   background: var(--color-dark-header); /* DARK BACKGROUND */
   color: var(--color-light); /* LIGHT FOREGROUND */
   padding: 2.5rem 0 0;
-  border-bottom: 3px solid var(--color-accent); /* Strong accent border underneath */
+  border-bottom: 3px solid var(--color-accent); 
 }
 
 .header-content {
@@ -56,7 +56,7 @@ header {
 
 .header-content h1 {
   margin: 0 0 0.25rem;
-  color: var(--color-light); /* Name is white */
+  color: var(--color-light); 
   font-size: 2.5rem;
   font-weight: 700;
 }
@@ -64,7 +64,7 @@ header {
 .subtitle {
   margin: 0;
   font-size: 1rem;
-  color: var(--color-subtle); /* Muted light color */
+  color: var(--color-subtle); 
 }
 
 .tags {
@@ -79,11 +79,11 @@ header {
     color: var(--color-subtle);
     font-size: 0.9rem;
     padding: 0.25rem 0;
-    border-bottom: 1px dotted var(--color-subtle); /* Subtle link style in light grey */
+    border-bottom: 1px dotted var(--color-subtle);
 }
 
 .links a:hover {
-    color: var(--color-light); /* White on hover */
+    color: var(--color-light); 
     border-bottom-color: var(--color-light);
 }
 
@@ -102,15 +102,15 @@ header {
   width: 38px; 
   height: 38px;
   border-radius: 50%; 
-  background: rgba(255, 255, 255, 0.1); /* Transparent light background on dark header */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border */
+  background: rgba(255, 255, 255, 0.1); 
+  border: 1px solid rgba(255, 255, 255, 0.3); 
   text-decoration: none;
   transition: all 0.2s ease;
   opacity: 1;
 }
 
 .social-link:hover {
-  background: var(--color-accent); /* Blue background on hover */
+  background: var(--color-accent); 
   border-color: var(--color-accent);
   transform: translateY(-2px); 
   box-shadow: 0 2px 5px rgba(0, 74, 173, 0.3);
@@ -119,12 +119,12 @@ header {
 .social-icon {
   width: 20px;
   height: 20px;
-  fill: var(--color-light); /* ICONS ARE NOW WHITE */
+  fill: var(--color-light); 
   transition: fill 0.2s;
 }
 
 .social-link:hover .social-icon {
-    fill: var(--color-light); /* Stays white on blue hover */
+    fill: var(--color-light); 
 }
 
 
@@ -132,10 +132,10 @@ header {
 .profile-pic-container {
   width: 150px; 
   height: 150px;
-  border: 4px solid var(--color-subtle); /* Border is light against the dark background */
+  border: 4px solid var(--color-subtle); 
   border-radius: 50%;
   padding: 0; 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow on dark background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
   flex-shrink: 0;
 }
 
@@ -150,7 +150,6 @@ header {
 /* --- NAVIGATION BAR --- */
 
 nav {
-  /* Separated from header, still uses light/white background */
   background: var(--color-light); 
   margin-top: 0;
   border-bottom: 1px solid var(--color-border);
@@ -165,7 +164,7 @@ nav {
 }
 
 nav a {
-  color: var(--color-subtle); /* Dark text on white background */
+  color: var(--color-subtle); 
   text-decoration: none;
   font-size: 1rem;
   padding: 0.25rem 0;
@@ -175,7 +174,7 @@ nav a {
 
 nav a:hover,
 nav a.active-link {
-  color: var(--color-accent); /* Blue text on hover/active */
+  color: var(--color-accent); 
 }
 
 /* Bottom Bar Indicator Effect */
@@ -295,8 +294,9 @@ ul li strong {
 }
 
 .pub-authors {
-    font-weight: 500;
-    color: var(--color-light); /* Adjusted for better visibility if used in a specific way, but usually in content */
+    /* FIX: Ensure authors are dark text on the light background */
+    font-weight: 600; /* Made slightly bolder */
+    color: var(--color-text); 
 }
 
 .pub-title {
@@ -340,7 +340,7 @@ footer {
     width: 120px;
     height: 120px;
     margin-bottom: 1rem;
-    border-color: var(--color-light); /* Ensure border is white on small screens */
+    border-color: var(--color-subtle);
   }
   .nav-links {
     gap: 1rem;
