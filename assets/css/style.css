@@ -24,8 +24,8 @@ body {
   align-items: center;
   justify-content: center;
   width: 32px;      /* smaller icon container */
-  height: 324px;
-  border-radius: 50%;
+  height: 32px;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   text-decoration: none;
   transition: background 0.2s ease, transform 0.2s ease;
