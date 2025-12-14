@@ -28,12 +28,15 @@ body {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s, transform 0.2s;
+  color: #f9fafb; /* icon color */
+  opacity: 0.85;  /* make them subtle */
 }
 
 .social-link:hover {
   background: rgba(255, 255, 255, 0.18);
   transform: translateY(-1px);
+  opacity: 1;
 }
 
 .social-icon {
