@@ -1,99 +1,100 @@
 /*
- * MODERN/FUTURISTIC STYLESHEET
- * Theme: Dark, High Contrast, CLI/Code Aesthetic
+ * PROFESSIONAL & LIGHT STYLESHEET
+ * Accent Color: #004aad (Deep Blue)
  */
 
 :root {
-  --color-dark-bg: #0A192F; /* Deep Blue/Black */
-  --color-light-text: #CCD6F6; /* Light Grey/Blue */
-  --color-subtle-text: #8892B0; /* Muted Grey/Blue */
-  --color-accent: #64FFDA; /* Cyan/Green */
-  --color-border: rgba(100, 255, 218, 0.2); /* Semi-transparent accent */
+  --color-accent: #004aad; /* Deep professional Blue */
+  --color-text: #212529; /* Near-black text */
+  --color-subtle: #6c757d; /* Muted grey for secondary text */
+  --color-bg: #f8f9fa; /* Very light grey background */
+  --color-light: #ffffff; /* Pure white */
+  --color-border: #dee2e6; /* Light grey border */
 }
 
 body {
   margin: 0;
-  /* Use a Monospace font for a CLI/Code feel */
-  font-family: 'Space Mono', monospace, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  /* Use a clean system font stack */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
-  color: var(--color-light-text);
-  background: var(--color-dark-bg);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #002d6b; /* Darker blue on hover */
+  text-decoration: underline;
 }
 
 .container {
   width: 90%;
-  max-width: 1000px; /* Slightly wider container */
+  max-width: 1000px; 
   margin: 0 auto;
 }
 
 /* --- HEADER / NAVIGATION --- */
 
 header {
-  background: var(--color-dark-bg); /* Use the main background color */
-  padding: 3rem 0 1rem; /* More vertical padding */
-  border-bottom: 1px solid var(--color-border); /* Subtle dividing line */
+  background: var(--color-light); /* White header background */
+  color: var(--color-text);
+  padding: 2.5rem 0 0;
+  border-bottom: 3px solid var(--color-accent); /* Strong accent border underneath */
 }
 
 .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem; /* Increased gap */
-}
-
-.header-text-container {
-  /* No specific styles needed here, just a wrapper */
+  gap: 2rem; 
+  padding-bottom: 1.5rem; /* Space before nav */
 }
 
 .header-content h1 {
   margin: 0 0 0.25rem;
-  color: var(--color-accent); /* Make the name pop */
+  color: var(--color-accent); 
   font-size: 2.5rem;
-  text-shadow: 0 0 10px rgba(100, 255, 218, 0.4); /* Neon glow effect */
+  font-weight: 700;
 }
 
 .subtitle {
   margin: 0;
   font-size: 1rem;
-  color: var(--color-subtle-text);
+  color: var(--color-subtle);
 }
 
 .tags {
   margin-top: 1rem;
   font-size: 0.9rem;
-  color: var(--color-accent); /* Make tags stand out */
-  opacity: 0.9;
-  letter-spacing: 1px; /* Space out the tags */
+  color: var(--color-subtle);
+  opacity: 1;
 }
 
-/* Profile Picture with Futuristic Frame */
-.profile-pic-container {
-  position: relative;
-  width: 160px; /* Slightly larger image */
-  height: 160px;
-  /* Frame effect using a pseudo-element or border */
-  border: 2px solid var(--color-accent);
-  border-radius: 50%;
-  padding: 5px; /* Spacing for the border */
-  box-shadow: 0 0 15px rgba(100, 255, 218, 0.6); /* Glow */
-  transition: box-shadow 0.3s ease-in-out;
+/* Social links container (for the raw text links in publications.html header) */
+.links {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.profile-pic-container:hover {
-  box-shadow: 0 0 25px rgba(100, 255, 218, 1);
+.links a {
+    color: var(--color-subtle);
+    font-size: 0.9rem;
+    padding: 0.25rem 0;
+    border-bottom: 1px dotted var(--color-accent); /* Subtle link style */
 }
 
-.profile-pic {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  /* No white border, let the container handle the frame */
-  display: block;
+.links a:hover {
+    color: var(--color-accent);
 }
 
-/* --- SOCIAL LINKS --- */
-
+/* For index.html (where social icons are used) */
 .social-links {
   margin-top: 1.5rem;
   display: flex;
@@ -105,53 +106,74 @@ header {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px; /* Slightly larger icon container */
-  height: 36px;
-  border-radius: 5px; /* Square/sharp instead of round */
-  background: rgba(100, 255, 218, 0.05); /* Very subtle background */
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  width: 38px; 
+  height: 38px;
+  border-radius: 50%; 
+  background: var(--color-light); 
+  border: 1px solid var(--color-border);
   text-decoration: none;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
-  color: var(--color-accent); /* Icon color */
-  opacity: 0.9;
+  transition: all 0.2s ease;
+  opacity: 1;
 }
 
 .social-link:hover {
-  background: rgba(100, 255, 218, 0.15);
+  background: var(--color-accent); 
   border-color: var(--color-accent);
-  transform: translateY(-2px); /* Lift effect */
-  opacity: 1;
+  transform: translateY(-2px); 
+  box-shadow: 0 2px 5px rgba(0, 74, 173, 0.3);
 }
 
 .social-icon {
   width: 20px;
   height: 20px;
-  fill: var(--color-accent);
+  fill: var(--color-text); /* Visible on light background */
+  transition: fill 0.2s;
+}
+
+.social-link:hover .social-icon {
+    fill: var(--color-light); /* White icon on blue hover */
+}
+
+
+/* Profile Picture: Clean and Bordered */
+.profile-pic-container {
+  width: 150px; 
+  height: 150px;
+  border: 4px solid var(--color-border); 
+  border-radius: 50%;
+  padding: 0; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  flex-shrink: 0;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 /* --- NAVIGATION BAR --- */
 
 nav {
-  /* Removed background from here to use it in header for the whole block */
-  margin-top: 2rem;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-light); 
+  margin-top: 0;
 }
 
 .nav-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center links for balance */
+  justify-content: flex-start; 
   gap: 2rem;
   padding: 0.75rem 0;
 }
 
 nav a {
-  color: var(--color-subtle-text);
+  color: var(--color-subtle);
   text-decoration: none;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 1rem;
+  padding: 0.25rem 0;
   position: relative;
   transition: color 0.2s;
 }
@@ -161,73 +183,152 @@ nav a.active-link {
   color: var(--color-accent);
 }
 
-/* Underline/Active Indicator Effect */
+/* Bottom Bar Indicator Effect */
 nav a::after {
   content: '';
   position: absolute;
-  bottom: -5px; /* Position below text */
+  bottom: -5px; 
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background-color: var(--color-accent);
-  transform: scaleX(0); /* Start hidden */
-  transition: transform 0.3s ease;
+  transform: scaleX(0); 
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-nav a:hover::after,
-nav a.active-link::after {
-  transform: scaleX(1); /* Show on hover/active */
+nav a.active-link::after,
+nav a:hover::after {
+  transform: scaleX(1); 
 }
 
 
 /* --- MAIN CONTENT --- */
 
 main {
-  padding: 3rem 0 4rem;
+  padding: 3rem 0;
 }
 
 section {
-  margin-bottom: 3rem;
-  background-color: #112240; /* Slightly lighter background for the content boxes */
+  margin-bottom: 2.5rem;
+  background-color: var(--color-light); 
   padding: 1.5rem;
-  border-radius: 5px;
-  border-left: 3px solid var(--color-accent); /* Highlight border */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Lifted look */
+  border-radius: 8px; 
+  border: 1px solid var(--color-border);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05); 
 }
 
 h2 {
   margin-top: 0;
   margin-bottom: 1rem;
-  border-bottom: none; /* Removed original border */
-  padding-bottom: 0;
-  color: var(--color-accent);
-  font-size: 1.5rem;
-  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-border); 
+  color: var(--color-text);
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
-/* Lists and list items */
+h3 {
+  /* Used for year headings in publications */
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-accent);
+  font-size: 1.3rem;
+  border-bottom: 1px dotted var(--color-border);
+  padding-bottom: 0.25rem;
+}
+
+/* Lists (General for index.html) */
 ul {
-  padding-left: 1.5rem;
+  list-style: none; 
+  padding-left: 0;
 }
 
 ul li {
   margin-bottom: 0.75rem;
-  color: var(--color-light-text);
-  border-left: 2px solid var(--color-subtle-text); /* Sub-list indicator */
-  padding-left: 10px;
+  position: relative;
+  padding-left: 1.5rem; 
+  border-bottom: 1px dotted rgba(0, 74, 173, 0.2); 
+  padding-bottom: 0.5rem;
+}
+
+ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5em;
+    line-height: 1;
+    color: var(--color-accent);
+    font-weight: bold;
 }
 
 ul li strong {
-    color: var(--color-accent); /* Highlight the roles/titles */
+    color: var(--color-text); 
+    font-weight: 600;
 }
+
+/* --- PUBLICATION SPECIFIC STYLES --- */
+
+.pub-section {
+    /* Inherits general section styles */
+}
+
+.pub-list {
+    list-style-type: none; 
+    padding-left: 0; 
+    /* For custom counter */
+    counter-reset: pub-counter;
+}
+
+.pub-list li {
+    counter-increment: pub-counter;
+    margin-bottom: 1.5rem; 
+    position: relative;
+    padding-left: 2rem; /* Space for the counter */
+    border-bottom: 1px dashed var(--color-border); /* Subtle separator */
+    padding-bottom: 1rem;
+    list-style: none; /* Override any general ul li rules */
+}
+
+/* Publication Number / Index */
+.pub-list li::before {
+    content: counter(pub-counter) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 700;
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    padding-right: 0.5rem;
+}
+
+.pub-authors {
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.pub-title {
+    font-style: italic; /* Keep italic for citation style */
+}
+
+.pub-venue {
+    font-style: normal;
+    font-weight: 500;
+}
+
+.pub-details {
+    color: var(--color-subtle);
+    font-size: 0.95rem;
+}
+
 
 /* --- FOOTER --- */
 
 footer {
-  background: #061121; /* Even darker footer */
-  padding: 1.5rem 0;
-  font-size: 0.8rem;
-  color: var(--color-subtle-text);
+  background: var(--color-light); 
+  padding: 1rem 0;
+  font-size: 0.85rem;
+  color: var(--color-subtle);
   border-top: 1px solid var(--color-border);
   text-align: center;
 }
@@ -237,81 +338,25 @@ footer {
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column-reverse;
-    align-items: center; /* Center content on small screens */
+    align-items: center; 
     text-align: center;
   }
   .header-content h1 {
     font-size: 2rem;
   }
   .profile-pic-container {
-    width: 140px;
-    height: 140px;
+    width: 120px;
+    height: 120px;
     margin-bottom: 1rem;
   }
   .nav-links {
     gap: 1rem;
     justify-content: space-around;
   }
-}
-
-/* --- UPDATED FUTURISTIC PUBLICATION STYLES --- */
-
-/* Inherits section styling (dark background, left accent border) */
-.pub-section { 
-    margin-bottom: 3rem; /* Match the main section spacing */
-}
-
-.pub-list {
-    list-style-type: none; /* Remove default numbering/bullets for cleaner look */
-    padding-left: 0; 
-}
-
-/* Use a custom counter for a clean list of papers */
-.pub-list {
-    counter-reset: pub-counter;
-}
-
-.pub-list li {
-    counter-increment: pub-counter;
-    margin-bottom: 1.5rem; /* Increased spacing between papers */
-    position: relative;
-    padding-left: 2.5rem; /* Space for the counter */
-    border-bottom: 1px dashed var(--color-border); /* Subtle separator */
-    padding-bottom: 1rem;
-}
-
-/* Publication Number / Index */
-.pub-list li::before {
-    content: counter(pub-counter) ".";
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-weight: bold;
-    color: var(--color-accent);
-    font-size: 1.1rem;
-}
-
-.pub-authors {
-    font-weight: 700;
-    color: var(--color-light-text);
-    display: block; /* New line for authors */
-}
-
-.pub-title {
-    font-style: normal; /* Less italic, more bold for modern look */
-    font-size: 1.1rem;
-    color: var(--color-accent);
-    display: block; /* New line for title */
-    margin: 0.25rem 0;
-}
-
-.pub-venue,
-.pub-details {
-    color: var(--color-subtle-text);
-    font-size: 0.9rem;
-    margin-left: 0;
-}
-
-.pub-venue {
-    font-weight: 500;
+  .links {
+    justify-content: center;
+  }
+  .pub-list li {
+    padding-left: 1.5rem; /* Smaller indent on mobile */
+  }
 }
