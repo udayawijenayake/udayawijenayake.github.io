@@ -421,3 +421,25 @@ footer {
     box-shadow: 0 4px 10px rgba(249, 115, 22, 0.4);
     transform: translateY(-2px); /* Slight lift */
 }
+
+/* Override default paragraph link behavior to use accent color */
+p a {
+    color: var(--color-accent); 
+    text-decoration: none; 
+}
+
+p a:hover {
+    text-decoration: underline; /* Underline only on hover for visibility */
+}
+
+/* Specific styling for the AIAI Lab link (if you decide to use a class) */
+.aiai-link {
+    /* If the inline style is kept, this class is optional, 
+       but it ensures the color and no initial underline. */
+    color: var(--color-accent) !important; 
+    text-decoration: none !important;
+}
+
+.aiai-link:hover {
+    text-decoration: underline !important;
+}
