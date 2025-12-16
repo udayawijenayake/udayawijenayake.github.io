@@ -261,13 +261,13 @@
             const years = Object.keys(groupedByYear).sort((a, b) => {
                 const na = parseInt(a, 10);
                 const nb = parseInt(b, 10);
-                if (isNaN(na) && isNaN(nb)) return b.localeCompare(a); // Reverse string sort for "No year"
+                if (isNaN(na) && isNaN(nb)) return b.localeCompare(a); 
                 if (isNaN(na)) return 1;
                 if (isNaN(nb)) return -1;
                 return nb - na; // Descending sort (newest year first)
             });
 
-            // Start the list container outside the year loop
+            // Start the list container
             html += `<ul class="pub-list-manual">`;
 
             years.forEach((year) => {
@@ -321,6 +321,9 @@
                     html += `<li class="pub-item-manual">`;
                     html += `<span class="pub-number">${number}.</span>`; // Manually inject number
                     
+                    // NEW: Wrap the entire publication citation into a content div
+                    html += `<div class="pub-text-content">`;
+
                     // 1. Authors
                     if (authors) {
                         html += `<span class="pub-authors">${authors}</span>, `;
@@ -342,6 +345,7 @@
                         html += ` <span class="pub-links"> | ${links.join(" | ")}</span>`;
                     }
 
+                    html += `</div>`; // Close pub-text-content
                     html += "</li>";
                 });
             });
