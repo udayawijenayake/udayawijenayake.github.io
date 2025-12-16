@@ -1,10 +1,19 @@
 /*
- * PROFESSIONAL & LIGHT STYLESHEET (Final Version - Pure Orange Accent, Layout Fixed)
+ * PROFESSIONAL & LIGHT STYLESHEET (Final Version - Manual Publication List)
  */
+
+/* ------------------------------------------------------------------- */
+/* FIX 1: AGGRESSIVE UNIVERSAL RESET (Required to fix the white band issue) */
+/* ------------------------------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 :root {
   --color-accent: #F97316; /* Bright Orange (Primary accent) */
-  --color-highlight: #F97316; /* Bright Orange */
+  --color-highlight: #F97316; 
   
   --color-text: #212529; 
   --color-subtle-light: #6c757d; 
@@ -17,7 +26,6 @@
 }
 
 body {
-  margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   color: var(--color-text);
@@ -38,7 +46,7 @@ a:hover {
 .container {
   width: 90%;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 auto; 
 }
 
 /* --- HEADER / NAVIGATION --- */
@@ -46,13 +54,12 @@ a:hover {
 header {
   background: var(--color-dark-header); 
   color: var(--color-light); 
-  padding: 2.5rem 0 0;
+  padding: 2.5rem 0 0; 
   border-bottom: 3px solid var(--color-accent); 
 }
 
 .header-content {
   display: flex;
-  /* FIX 1: Ensure main header items are vertically aligned */
   align-items: center; 
   justify-content: space-between;
   gap: 2rem;
@@ -94,11 +101,10 @@ header {
 
 /* Social Icon links */
 .social-links {
-  margin-top: 1rem; /* Slightly reduced margin */
+  margin-top: 1rem; 
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem; /* Reduced gap for a tighter look */
-  /* FIX 2: Align items perfectly within the social link row */
+  gap: 0.5rem; 
   align-items: center; 
 }
 
@@ -106,7 +112,7 @@ header {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px; /* Slightly smaller box */
+  width: 32px; 
   height: 32px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
@@ -126,7 +132,7 @@ header {
 }
 
 .social-icon {
-  width: 18px; /* Slightly smaller icon to fit 32px box */
+  width: 18px; 
   height: 18px;
   fill: var(--color-light);
   transition: fill 0.3s;
@@ -147,7 +153,6 @@ header {
 
 /* Profile Picture: Clean and Bordered */
 .profile-pic-container {
-  /* FIX 3: Increased the size to match your original non-CSS image */
   width: 160px; 
   height: 160px;
   border: 4px solid var(--color-highlight); 
@@ -156,7 +161,6 @@ header {
   box-shadow: 0 0 15px rgba(249, 115, 22, 0.7); 
   transition: box-shadow 0.3s ease-in-out;
   flex-shrink: 0;
-  /* FIX 4: Center the image contents within the container */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -167,7 +171,6 @@ header {
 }
 
 .profile-pic {
-  /* FIX 5: Set image size to be slightly smaller than the container to allow for the border/padding */
   width: 152px; 
   height: 152px; 
   object-fit: cover;
@@ -250,6 +253,7 @@ h2 {
 }
 
 h3 {
+  /* H3 styling remains for the year headings */
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
   color: var(--color-accent);
@@ -294,50 +298,34 @@ ul li strong {
     /* Inherits general section styles */
 }
 
-.pub-list {
+.pub-list-manual { /* New list class for manual rendering */
     list-style-type: none;
     padding-left: 0;
-    counter-reset: pub-counter;
-    
-    /* Visual reversal of the list order */
-    display: flex;
-    flex-direction: column-reverse;
-    
-    /* Fix for counter display in reversed lists */
-    direction: rtl;
-    unicode-bidi: isolate;
+    /* Removed the failed CSS counter/reversal logic */
 }
 
-/* Fix for list items inside the reversed list */
-.pub-list li {
-    counter-increment: pub-counter;
+.pub-list-manual li {
     margin-bottom: 1.5rem;
     position: relative;
-    padding-left: 2rem;
+    padding-left: 0;
     border-bottom: 1px dashed var(--color-border);
     padding-bottom: 1rem;
     list-style: none;
-    
-    /* Reset text direction for the list item content */
-    direction: ltr; 
     text-align: left;
+    display: flex;
+    flex-wrap: wrap; 
 }
 
-.pub-list li::before {
-    content: counter(pub-counter) ".";
-    position: absolute;
-    left: 0;
-    top: 0;
+/* Style for the manually injected number */
+.pub-number {
     font-weight: 700;
     color: var(--color-accent);
     font-size: 1.1rem;
     padding-right: 0.5rem;
-}
-
-/* Fix for H3 (Year headings) inside the reversed list */
-.pub-list h3 {
-    direction: ltr; 
-    text-align: left;
+    flex-shrink: 0; 
+    width: 2rem; 
+    text-align: right;
+    margin-right: 0.5rem;
 }
 
 .pub-authors {
@@ -399,47 +387,4 @@ footer {
   .links {
     justify-content: center;
   }
-}
-
-/* New Style for the CV Button */
-.btn-cv {
-    display: inline-block;
-    background-color: var(--color-accent); /* Bright Orange Background */
-    color: var(--color-light) !important; /* White text on button */
-    padding: 0.75rem 1.5rem;
-    margin-top: 1.5rem;
-    border-radius: 5px;
-    font-weight: 600;
-    text-decoration: none !important; /* Remove underline */
-    letter-spacing: 0.5px;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
-    border: 1px solid var(--color-accent);
-}
-
-.btn-cv:hover {
-    background-color: #c95d12; /* Darker orange on hover */
-    box-shadow: 0 4px 10px rgba(249, 115, 22, 0.4);
-    transform: translateY(-2px); /* Slight lift */
-}
-
-/* Override default paragraph link behavior to use accent color */
-p a {
-    color: var(--color-accent); 
-    text-decoration: none; 
-}
-
-p a:hover {
-    text-decoration: underline; /* Underline only on hover for visibility */
-}
-
-/* Specific styling for the AIAI Lab link (if you decide to use a class) */
-.aiai-link {
-    /* If the inline style is kept, this class is optional, 
-       but it ensures the color and no initial underline. */
-    color: var(--color-accent) !important; 
-    text-decoration: none !important;
-}
-
-.aiai-link:hover {
-    text-decoration: underline !important;
 }
