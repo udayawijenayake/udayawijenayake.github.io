@@ -292,28 +292,35 @@ ul li strong {
     font-weight: 600;
 }
 
-/* --- PUBLICATION SPECIFIC STYLES --- */
+/* --- PUBLICATION SPECIFIC STYLES (Targeting the manual list) --- */
 
-.pub-section {
-    /* Inherits general section styles */
-}
-
-.pub-list-manual { /* New list class for manual rendering */
+.pub-list-manual { 
+    /* FIX 2: Clear all list styling and remove the bottom margin from the <ul> element itself */
     list-style-type: none;
     padding-left: 0;
-    /* Removed the failed CSS counter/reversal logic */
+    margin-bottom: 0; 
 }
 
 .pub-list-manual li {
+    /* FIX 3: Remove default list item border/padding/position, and disable the custom bullet point */
     margin-bottom: 1.5rem;
-    position: relative;
     padding-left: 0;
+    position: static; /* Clear relative positioning */
     border-bottom: 1px dashed var(--color-border);
     padding-bottom: 1rem;
     list-style: none;
     text-align: left;
+    
+    /* Use Flexbox for cleaner horizontal layout */
     display: flex;
+    /* FIX 4: Aligns item text with the number */
+    align-items: baseline; 
     flex-wrap: wrap; 
+}
+
+.pub-list-manual li::before {
+    /* FIX 5: Disable the interfering default bullet point marker */
+    content: none; 
 }
 
 /* Style for the manually injected number */
@@ -323,9 +330,24 @@ ul li strong {
     font-size: 1.1rem;
     padding-right: 0.5rem;
     flex-shrink: 0; 
-    width: 2rem; 
+    /* FIX 6: Set a fixed width for the number column for neat alignment */
+    width: 2.5rem; 
     text-align: right;
     margin-right: 0.5rem;
+}
+
+/* Container for the rest of the publication details */
+.pub-text-content {
+    /* FIX 7: Ensure the main content takes up the remaining space and wraps correctly */
+    display: block; 
+    flex-grow: 1;
+    line-height: 1.4; /* Tighter line height to reduce vertical gaps */
+}
+
+/* Style the contents inside the text content block */
+.pub-text-content span, .pub-text-content a {
+    /* Ensure elements stay inline if possible, preventing large gaps between authors, title, etc. */
+    display: inline;
 }
 
 .pub-authors {
