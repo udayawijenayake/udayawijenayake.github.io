@@ -326,6 +326,8 @@ ul li strong {
 
 /* --- PUBLICATION SPECIFIC STYLES (Targeting the manual list) --- */
 
+/* --- PUBLICATION SPECIFIC STYLES (Targeting the manual list) --- */
+
 .pub-list-manual { 
     list-style-type: none;
     padding-left: 0;
@@ -341,6 +343,7 @@ ul li strong {
     list-style: none;
     text-align: left;
     
+    /* Display the number and the text content inline, aligned to the baseline */
     display: flex;
     align-items: baseline; 
     flex-wrap: wrap; 
@@ -357,20 +360,31 @@ ul li strong {
     font-size: 1.1rem;
     padding-right: 0.5rem;
     flex-shrink: 0; 
+    /* Fixed width for alignment */
     width: 2.5rem; 
     text-align: right;
-    margin-right: 0.5rem;
+    /* REMOVE margin-right to eliminate the gap */
 }
 
 /* Container for the rest of the publication details */
 .pub-text-content {
-    /* FIX: Change display to inline to force content immediately after .pub-number */
-    display: inline; 
+    /* Set to inline-block to accept flex properties while maintaining text flow */
+    display: inline-block; 
+    /* Use flex-grow to ensure the text takes up the remaining horizontal space */
     flex-grow: 1; 
     line-height: 1.4; 
-    /* Use min-width: 0 to handle potential flex sizing issues with long inline content */
-    min-width: 0;
+    /* Add a small negative margin to pull the text right up against the number's boundary */
+    margin-left: -0.3rem; 
 }
+
+/* Style the contents inside the text content block */
+.pub-text-content span, .pub-text-content a {
+    display: inline;
+    /* Ensure the inline elements do not have any weird internal margins */
+    margin: 0;
+    padding: 0;
+}
+/* ... (Rest of CSS remains the same) ... */
 
 /* Style the contents inside the text content block */
 .pub-text-content span, .pub-text-content a {
