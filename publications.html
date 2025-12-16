@@ -321,29 +321,44 @@
                     html += `<li class="pub-item-manual">`;
                     html += `<span class="pub-number">${number}.</span>`; // Manually inject number
                     
-                    // NEW: Wrap the entire publication citation into a content div
+                    // Wrap the entire publication citation into a content div
                     html += `<div class="pub-text-content">`;
 
-                    // 1. Authors
+                    // Start building the citation string:
+                    let citation = '';
+
+                    // 1. Authors, followed by a comma and space
                     if (authors) {
-                        html += `<span class="pub-authors">${authors}</span>, `;
+                        citation += `<span class="pub-authors">${authors}</span>, `;
                     }
-                    // 2. Title
+                    
+                    // 2. Title, enclosed in quotes, followed by a comma and space
                     if (title) {
-                        html += `<span class="pub-title">“${title}”</span>`;
+                        citation += `<span class="pub-title">“${title}”</span>, `;
                     }
-                    // 3. Venue
+                    
+                    // 3. Venue, followed by a comma and space
                     if (venueStr) {
-                        html += `, ${venueStr}`;
+                        citation += `${venueStr}`;
                     }
+                    
                     // 4. Details (Vol, Pages, etc.)
                     if (detailsStr) {
-                        html += `, <span class="pub-details">${detailsStr}</span>`;
+                        // Append details starting with a comma and space
+                        citation += `, <span class="pub-details">${detailsStr}</span>`;
                     }
-                    // 5. Links
+                    
+                    // 5. Year (Now handled by the H3, so we remove the redundant year display here)
+                    // (Optional: If year must be inside the list item, add it here: `(${year})`)
+
+                    // 6. Links
                     if (links.length > 0) {
-                        html += ` <span class="pub-links"> | ${links.join(" | ")}</span>`;
+                        // Append links starting with a clear separator
+                        citation += ` <span class="pub-links"> | ${links.join(" | ")}</span>`;
                     }
+                    
+                    // Insert the fully constructed citation string
+                    html += citation;
 
                     html += `</div>`; // Close pub-text-content
                     html += "</li>";
